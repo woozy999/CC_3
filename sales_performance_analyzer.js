@@ -28,3 +28,21 @@ function determinePerformnaceRating(averageSales) {
         return "Needs Improvement";
     }
 }
+
+//part 3
+
+function findTopAndBottomPerformers(salesPeople) {
+
+    let topPerformer = salesPeople.reduce((top, current) => {
+        return current.totalSales > top.totalSales
+    });
+
+    let bottomPerformer = salesPeople.reduce((bottom, current) => {
+        return current.totalSales < bottom.totalSales ? current : bottom;
+    });
+
+    return {
+        topPerformer: topPerformer,
+        bottomPerformer: bottomPerformer
+    };
+}
