@@ -46,3 +46,27 @@ function findTopAndBottomPerformers(salesPeople) {
         bottomPerformer: bottomPerformer
     };
 }
+
+//part 4
+
+function generatePerformanceReport(salesData) {
+    
+    let report = salesData.map(salesperson => {
+        let averageSales = calculateAverageSales(salesperson.sales);
+        let performanceRating = determinePerformnaceRating(averageSales);
+
+        return {
+            name: salesperson.name,
+            averageSales: averageSales,
+            performanceRating
+        };
+    });
+
+    let findTopAndBottomPerformers = findTopAndBottomPerformers(salesData);
+
+    return {
+        report: report,
+        topPerformer: topAndBottomPerformers.topPerformer,
+        bottomPerformer: topAndBottomPerformers.bottomPerformer
+    };
+}
